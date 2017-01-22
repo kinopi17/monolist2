@@ -18,27 +18,28 @@ class OwnershipsController < ApplicationController
     @item.large_image     = item['mediumImageUrls'].first['imageUrl'].gsub('?_ex=128x128', '')
     @item.detail_page_url = item['itemUrl']
     @item.save!
-  end
+  　end
   
     # TODO ユーザにwant or haveを設定する
     # params[:type]の値にHaveボタンが押された時には「Have」,
     # Wantボタンが押された時には「Want」が設定されています。
-  def create    
+  
     if params[:type]=="Have"
     current_user.have(@item)
     elsif params[:type]=="Want"
     current_user.want(@item)
     end
-  end  
+  end 
 
   def destroy
-    if params[:type]=="Have it"
+    @item = Item.find(params[:item_id])
+    if params[:type]=="Have"
     current_user.unhave(@item)
-    elsif params[:type]=="Want it"
+    elsif params[:type]=="Want"
     current_user.unwant(@item)
     end
   end
-end  
+end 
 
     # TODO 紐付けの解除。 
     # params[:type]の値にHave itボタンが押された時には「Have」,
