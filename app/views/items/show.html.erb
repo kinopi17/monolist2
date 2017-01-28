@@ -9,7 +9,7 @@
       </div>
       <div class="title">
         <% #TODO 商品タイトル %>
-        仮タイトル
+      　<%= @item['itemName'] %>
       </div>
       <%= render 'action' , item: @item %>
     </div>
@@ -17,14 +17,17 @@
       <div class="side-box">
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
+        <% content_for:title do %>  
           <% # TODO Haveしたユーザー一覧 %>
-
+        <% end %>
         </div>
       </div>
       <div class="side-box">
         <h4 class="side-box-title">Wantしたユーザー</h4>
         <div class="side-box-body">
+        <% content_for:title do %>  
           <% # TODO Wantしたユーザー一覧 %>
+        <% end %>  
         </div>
       </div>
       <div class="text-center">
