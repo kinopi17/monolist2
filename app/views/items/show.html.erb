@@ -38,5 +38,7 @@
       </div>
   </div>
 </div>
-
-  
+<% content_for :head  do %>
+  <title><%= @item.title %> - monolist</title>
+  <meta name="description" content="<%= @item.title %>に関する情報です。この商品を欲しい人、持ってる人を表示しています。">
+<% end %>
